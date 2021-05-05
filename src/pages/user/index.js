@@ -11,7 +11,10 @@ class Index extends React.Component {
 
     }
     outLogin(){
-        this.props.dispatch(actions.user.outLogin());
+        // this.props.dispatch(actions.user.outLogin());
+        this.props.dispatch((dispatch) => {
+            dispatch(actions.user.outLogin());
+        })
         this.props.history.replace(config.path+"login");
     }
     render() {

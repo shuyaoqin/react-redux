@@ -19,7 +19,10 @@ class Index extends React.Component {
             alert("请输入密码");
             return;
         }
-        this.props.dispatch(actions.user.login({username:this.state.username, isLogin:true}));
+        // this.props.dispatch(actions.user.login({username:this.state.username, isLogin:true}));
+        this.props.dispatch((dispatch) => {
+            dispatch(actions.user.login({username:this.state.username, isLogin:true}));
+        })
         this.props.history.go(-1);
     }
     componentDidMount(){

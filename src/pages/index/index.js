@@ -13,10 +13,16 @@ class Index extends React.Component {
     incCount() {
         // 1.选购商品，触发actions
         // this.props.dispatch({type: 'INC', data:{count:++this.num}}));
-        this.props.dispatch(actions.counter.incCount({count: ++this.num}));
+        // this.props.dispatch(actions.counter.incCount({count: ++this.num}));
+        this.props.dispatch((dispatch, getState) => {
+            dispatch(actions.counter.incCount({count: ++this.num}));
+        })
     }
     delCount(){
-        this.props.dispatch(actions.counter.decCount({count: --this.num}));
+        // this.props.dispatch(actions.counter.decCount({count: --this.num}));
+        this.props.dispatch((dispatch) => {
+            dispatch(actions.counter.decCount({count: --this.num}));
+        })
     }
     render() {
         return (
